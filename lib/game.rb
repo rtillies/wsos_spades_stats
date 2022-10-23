@@ -15,10 +15,21 @@ class Game
     @away_score = row[4]
   end
 
-  def home_team
-    
+  def winning_team
+    if !double_forfeit
+      home_score > away_score ? home_code : away_code
+    end
+  end
+  
+  def differential
+    abs(home_score-away_score)
   end
 
-  def away_team
+  def forfeit?
+    differential == 1 && home_score < 2
+  end
+
+  def double_forfeit?
+    differential == 0 && home_score == 0
   end
 end
