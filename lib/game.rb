@@ -1,4 +1,6 @@
+require_relative 'game'
 require_relative 'team'
+require_relative 'division'
 
 class Game
   attr_reader :id,

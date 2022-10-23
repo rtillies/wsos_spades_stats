@@ -1,6 +1,11 @@
+require_relative 'game'
+require_relative 'team'
+require_relative 'division'
+
 class Team
   attr_reader :code, :team_name, :conference, :division, :member1, :member2, :location,
-              :wins, :losses, :no_contest, :fwins, :flosses, :total_score, :opp_score
+              :wins, :losses, :no_contest, :total_score, :opp_score,
+              :hwins, :hloss, :awins, :alosses, :fwins, :flosses
   
   def initialize(row)
     @code = row[0]
