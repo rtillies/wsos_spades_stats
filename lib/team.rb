@@ -21,11 +21,24 @@ class Team
     @dwins = @dloss = @cwins = @closs = 0
   end
 
-  def increment(stat)
-    stat += 1
+  def differential
+    @total_score - @opp_score
   end
 
-  def increase(stat, amount)
-    stat += amount
+  def avg_diff
+    played = wins + losses - fwins - floss
+    played > 0 ? (differential.to_f / played).round(1) : "n/a"
   end
+
+  def forfeits 
+    fwins + floss + no_contest
+  end
+
+  # def increment(stat)
+  #   stat += 1
+  # end
+
+  # def increase(stat, amount)
+  #   stat += amount
+  # end
 end
