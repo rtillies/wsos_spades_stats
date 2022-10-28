@@ -28,12 +28,6 @@ class StatTracker
     contents.each do |row|
       team = Team.new(row)
       @teams[team.code] = team
-
-      # puts("Code: #{team.code}, Team: #{team.team_name}, Division: #{team.division}, Conference: #{team.conference}")
-      @teams.each do |c, t| 
-        # require 'pry'; binding.pry
-        # puts("Code: #{c}, Team: #{t.team_name}, Division: #{t.division}, Conference: #{t.conference}")
-      end
     end
 
     puts("Team array counter:  #{@teams.size}")
@@ -47,8 +41,6 @@ class StatTracker
       game = Game.new(row)
       @games << game 
 
-      # puts("Game ID: #{game.id}, Home: #{game.home_code} #{game.home_score}, Away: #{game.away_code} #{game.away_score}")
-
       home = game.home_code
       away = game.away_code
       d_game = game.div_game?
@@ -59,7 +51,6 @@ class StatTracker
         puts "Double Forfeit Game ID: #{game.id}"
         @teams[home].no_contest += 1
         @teams[away].no_contest += 1
-        # puts("Game ID: #{game.id}, Home: #{game.home_code} #{game.home_score}, Away: #{game.away_code} #{game.away_score}")
       else
         # Winner
         winner = game.winning_team
@@ -98,16 +89,6 @@ class StatTracker
           @teams[loser].opp_score += game.winning_score
         end
       end
-
-      # Forfeit
-      # if game.forfeit?
-      #   winner = game.winning_team
-      #   loser = game.losing_team
-
-      #   puts "Forfeit Game ID: #{game.id}"
-      # end
-      # @teams[home].total_score += game.home_score
-
     end
 
     puts("Game array counter: #{@games.size}")
@@ -126,11 +107,6 @@ class StatTracker
     contents.each do |row|
       div = Division.new(row)
       @divisions << div
-
-
-
-
-      # puts("  #{div.code}: Division: #{div.division}, Conf: #{div.conference}")
     end
 
     puts("Division array counter: #{@divisions.size}")
@@ -149,12 +125,6 @@ class StatTracker
       div_output[team.division] << team
     end
 
-    # puts " #{t.team_name} #{t.wins}-#{t.losses}-#{t.no_contest}, Points: #{t.total_score} Against: #{t.opp_score}"
-    # puts " #{t.team_name} #{t.wins}-#{t.losses}-#{t.no_contest}, Forfeits: #{t.forfeits},  Avg Diff: #{t.avg_diff}"
-    # puts("Code: #{c}, Division: #{d.division}, Conference: #{d.conference}")
-    
-    #films_info is an array of arrays
-    # headers = ["Rank", "Title", "Genre", "Description", "Director", "Actors", "Year", "Runtime (Minutes)", "Rating", "Votes", "Revenue (Millions)", "Metascore"]
     headers = ["Team Name","Division","Conference","Wins","Loss","No Contest","Total Score","Opp Score",
                "Differential","Avg Diff","Home Wins","Home Loss","Away Wins","Away Loss",
                "Div Wins","Div Loss","Conf Wins","Conf Loss","Forf Wins","Forf Loss"]
@@ -204,7 +174,6 @@ class StatTracker
           
           csv << team_line
         end
-
       end
     end
   end
