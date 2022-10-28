@@ -53,22 +53,12 @@ class Game
   end
 
   def conf_game?
-    if div_game?
-      return true
-    else
-      # home_conf = get_conf(home_code)
-      # away_conf = get_conf(away_code)
-      # return home_conf == away_conf
-      return get_conf(home_code) == get_conf(away_code)
-    end
+    div_game? ? true : get_conf(home_code) == get_conf(away_code)
   end
 
   def get_conf(team)
-    if team[0] == 'A' || team[0] == 'B' || team[0] == 'C'
-      'W'
-    else
-      'E'
-    end
+    t0 = team[0] 
+    (t0 == 'A' || t0 == 'B' || t0 == 'C') ? 'W' : 'E'
 end 
 
   def div_game?
