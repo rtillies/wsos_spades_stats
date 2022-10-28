@@ -1,4 +1,4 @@
-Code,TeamName,Conference,Division,Member1,Member2,Location
+ID,TeamName,Conference,Division,Member1,Member2,Location
 A1,Detroit 76ers,Western,G.O.O.D.,Trell,Chef Hardy,"Detroit, MI"
 A2,Tag Em & Bag Em,Western,G.O.O.D.,Hard Boiled,newhousebailey,"Springfield, IL"
 A3,Miller Time,Western,G.O.O.D.,Marcellus C. Miller,RISPEKMIGAME,"Flint, MI"
@@ -12,8 +12,8 @@ B5,Hands On Deck,Western,Cash Money,Marvin,MzThickness82,"St. Louis, MO"
 C1,JQ Suited,Western,Death Row,Jan,Quin,"Durham, NC"
 C2,Kimasha,Western,Death Row,Dkelham,AkDj,"Anchorage, AK"
 C3,Kingdom Minded,Western,Death Row,Unique Moves,Jamal,"Tuscon, AZ"
-C4,Set,Western,Death Row,j.scott,Andrew,"Los Angeles, CA"
-C5,Run The Board,Western,Death Row,Cubano_romano,hip hip,"Los Angeles, CA"
+C4,Blind 7's,Western,Death Row,Weplay_youlose716,Montana Gold,"Buffalo, NY"
+C5,Dubs,Western,Death Row,K-Dub,C-Dub,"Buffalo, NY"
 D1,Shaolin Stars,Eastern,Bad Boy,DijaMo,MinaMo,"New York, NY"
 D2,N.M.O.E.,Eastern,Bad Boy,Percy Lee,KB,"Philadelphia, PA"
 D3,Knuck If You Stuck,Eastern,Bad Boy,Borah,Aceito420,"Newark, NJ"
@@ -21,8 +21,8 @@ D4,Gerow Animals,Eastern,Bad Boy,Chad Upson,Junslugger,"New York, NY"
 D5,Double D's,Eastern,Bad Boy,Devon,Dazzlingdg1,"New York, NY"
 E1,PG's Finest,Eastern,State Property,Furmane,Charles Williams,DMV
 E2,Team Bui,Eastern,State Property,Daniel Bui,Tiffany,DMV
-E3,Hustle,Eastern,State Property,Stretch85,Jay,"Washington, DC"
-E4,Spin Em,Eastern,State Property,C Scott,Takeheed,"Philadelphia, PA"
+E3,Yonkers Southside,Eastern,State Property,BooSix8,Ron Mack,"Yonkers, NY"
+E4,Ol Dirty,Eastern,State Property,iprefergofish,Reef Lauren,"Philadelphia, PA"
 E5,Harry Potheads,Eastern,State Property,Eric Preston,BodiesByYah,"Philadelphia, PA"
 F1,Florida Oranges,Eastern,So So Def,Nikki Gaines,Ronae,"Fort Lauderdale, FL"
 F2,Twin N Em,Eastern,So So Def,Mani,Nae,"Charlotte, NC"

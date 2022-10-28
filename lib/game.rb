@@ -1,9 +1,11 @@
 require_relative 'game'
 require_relative 'team'
 require_relative 'division'
+require 'Date'
 
 class Game
   attr_reader :id,
+              :date,
               :home_code,
               :away_code,
               :home_score,
@@ -11,10 +13,11 @@ class Game
   
   def initialize(row)
     @id = row[0]
-    @home_code = row[1]
-    @away_code = row[2]
-    @home_score = row[3].to_i
-    @away_score = row[4].to_i
+    @date = row[1]
+    @home_code = row[2]
+    @away_code = row[3]
+    @home_score = row[4].to_i
+    @away_score = row[5].to_i
   end
 
   def winning_team
@@ -53,19 +56,20 @@ class Game
     if div_game?
       return true
     else
-      if home_code[0] == 'A' || home_code[0] == 'B' || home_code[0] == 'C'
-        home_conf = 'W'
-      else
-        home_conf = 'E'
-      end
-      if away_code[0] == 'A' || away_code[0] == 'B' || away_code[0] == 'C'
-        away_conf = 'W'
-      else
-        away_conf = 'E'
-      end
-      return home_conf == away_conf
+      # home_conf = get_conf(home_code)
+      # away_conf = get_conf(away_code)
+      # return home_conf == away_conf
+      return get_conf(home_code) == get_conf(away_code)
     end
   end
+
+  def get_conf(team)
+    if team[0] == 'A' || team[0] == 'B' || team[0] == 'C'
+      'W'
+    else
+      'E'
+    end
+end 
 
   def div_game?
     home_code[0] == away_code[0]
