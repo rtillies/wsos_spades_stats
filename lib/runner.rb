@@ -1,7 +1,7 @@
 # runner.rb
 require './lib/stat_tracker'
 
-game_path = './data/Week01CSV.csv'
+game_path = './data/Week02CSV.csv'
 team_path = './data/TeamCSV.csv'
 div_path  = './data/DivisionCSV.csv'
 out_path  = './data/outputCSV.csv'
