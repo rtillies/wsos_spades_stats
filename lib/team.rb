@@ -6,7 +6,7 @@ class Team
   attr_reader :code, :team_name, :conference, :division, :member1, :member2, :location
   attr_accessor :wins, :losses, :no_contest, :total_score, :opp_score,
                 :hwins, :hloss, :awins, :aloss, :fwins, :floss,
-                :dwins, :dloss, :cwins, :closs
+                :dwins, :dloss, :cwins, :closs, :percentage
   
   def initialize(row)
     @code = row[0]
@@ -32,6 +32,10 @@ class Team
 
   def forfeits 
     fwins + floss + no_contest
+  end
+
+  def percentage
+    (wins.to_f / (wins + losses + no_contest)).round(3)
   end
 
   # def increment(stat)

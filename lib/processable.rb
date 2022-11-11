@@ -103,16 +103,18 @@ module Processable
       div_output[team.division] << team
     end
 
-    headers = ["Team Name","Division","Conference","Wins","Loss","No Contest","Total Score","Opp Score",
-                "Differential","Avg Diff","Home Wins","Home Loss","Away Wins","Away Loss",
-                "Div Wins","Div Loss","Conf Wins","Conf Loss","Forf Wins","Forf Loss"]
+    headers = ["Team Name","Division","Conference","Wins","Loss","Percentage",
+                "Total Score","Opp Score","Margin","Avg Margin",
+                "Home Wins","Home Loss","Away Wins","Away Loss",
+                "Div Wins","Div Loss","Conf Wins","Conf Loss",
+                "Forf Wins","Forf Loss","No Contest"]
     
     CSV.open(output, "w") do |csv|
       csv << headers
       blank_array = [""]
       div_array = ["None"]
 
-      20.times do 
+      21.times do 
         blank_array << nil
         div_array << nil
       end
@@ -134,7 +136,7 @@ module Processable
           team_line << t.conference
           team_line << t.wins
           team_line << t.losses
-          team_line << t.no_contest
+          team_line << t.percentage
           team_line << t.total_score
           team_line << t.opp_score
           team_line << t.differential
@@ -149,6 +151,7 @@ module Processable
           team_line << t.closs
           team_line << t.fwins
           team_line << t.floss
+          team_line << t.no_contest
           
           csv << team_line
         end
