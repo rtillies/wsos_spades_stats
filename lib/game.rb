@@ -21,13 +21,13 @@ class Game
   end
 
   def winning_team
-    if !double_forfeit?
+    if !(double_forfeit? || draw_game?)
       home_score > away_score ? home_code : away_code
     end
   end
   
   def losing_team
-    if !double_forfeit?
+    if !(double_forfeit? || draw_game?)
       home_score < away_score ? home_code : away_code
     end
   end
@@ -50,6 +50,10 @@ class Game
 
   def double_forfeit?
     differential == 0 && home_score == 0
+  end
+
+  def draw_game?
+    differential == 0 && home_score >= 500
   end
 
   def conf_game?

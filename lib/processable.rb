@@ -107,7 +107,7 @@ module Processable
                 "Total Score","Opp Score","Margin","Avg Margin",
                 "Home Wins","Home Loss","Away Wins","Away Loss",
                 "Div Wins","Div Loss","Conf Wins","Conf Loss",
-                "Forf Wins","Forf Loss","No Contest"]
+                "Forf Wins","Forf Loss","Draw"]
     
     CSV.open(output, "w") do |csv|
       csv << headers
