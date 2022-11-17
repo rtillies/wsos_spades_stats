@@ -27,8 +27,11 @@ module Processable
       # Double Forfeit
       if game.double_forfeit?
         # puts "Double Forfeit Game ID: #{game.id}"
-        @teams[home].no_contest += 1
-        @teams[away].no_contest += 1
+        @teams[home].double_forfeit += 1
+        @teams[away].double_forfeit += 1
+      elsif game.draw_game?
+        @teams[home].draw += 1
+        @teams[away].draw += 1
       else
         # Winner
         winner = game.winning_team
@@ -107,14 +110,14 @@ module Processable
                 "Total Score","Opp Score","Margin","Avg Margin",
                 "Home Wins","Home Loss","Away Wins","Away Loss",
                 "Div Wins","Div Loss","Conf Wins","Conf Loss",
-                "Forf Wins","Forf Loss","Draw"]
+                "Forf Wins","Forf Loss","Dbl Forf", "Draw"]
     
     CSV.open(output, "w") do |csv|
       csv << headers
       blank_array = [""]
       div_array = ["None"]
 
-      21.times do 
+      22.times do 
         blank_array << nil
         div_array << nil
       end
@@ -151,7 +154,8 @@ module Processable
           team_line << t.closs
           team_line << t.fwins
           team_line << t.floss
-          team_line << t.no_contest
+          team_line << t.double_forfeit
+          team_line << t.draw
           
           csv << team_line
         end

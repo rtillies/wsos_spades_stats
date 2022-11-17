@@ -5,7 +5,7 @@ require_relative 'division'
 class Team
   attr_reader :code, :team_name, :conference, :division, :member1, :member2, :location
   attr_accessor :wins, :losses, :draw, :total_score, :opp_score,
-                :hwins, :hloss, :awins, :aloss, :fwins, :floss, :double_forfeit
+                :hwins, :hloss, :awins, :aloss, :fwins, :floss, :double_forfeit,
                 :dwins, :dloss, :cwins, :closs, :percentage
   
   def initialize(row)
@@ -16,7 +16,7 @@ class Team
     @member1 = row[4]
     @member2 = row[5]
     @location = row[6]
-    @wins = @losses = @draw = 0
+    @wins = @losses = @draw = @double_forfeit = 0
     @total_score = @opp_score = 0
     @hwins = @hloss = @awins = @aloss = @fwins = @floss = 0
     @dwins = @dloss = @cwins = @closs = 0
