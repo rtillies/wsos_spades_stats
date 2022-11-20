@@ -13,7 +13,8 @@ class Game
   
   def initialize(row)
     @id = row[0]
-    @date = row[1]
+    # @date = row[1]
+    @date = Date.parse(row[1], '%Y-%m-%d')
     @home_code = row[2]
     @away_code = row[3]
     @home_score = row[4].to_i
@@ -40,20 +41,20 @@ class Game
     [home_score, away_score].min
   end
   
-  def differential
+  def margin
     (home_score.to_i - away_score.to_i).abs
   end
 
   def forfeit?
-    differential == 1 && home_score < 2
+    margin == 1 && home_score < 2
   end
 
   def double_forfeit?
-    differential == 0 && home_score == 0
+    margin == 0 && home_score == 0
   end
 
   def draw_game?
-    differential == 0 && home_score >= 500
+    margin == 0 && home_score >= 500
   end
 
   def conf_game?

@@ -22,13 +22,13 @@ class Team
     @dwins = @dloss = @cwins = @closs = 0
   end
 
-  def differential
+  def margin
     @total_score - @opp_score
   end
 
-  def avg_diff
+  def avg_margin
     played = wins + losses + draw - fwins - floss
-    played > 0 ? (differential.to_f / played).round(1) : "n/a"
+    played > 0 ? (margin.to_f / played).round(1) : "n/a"
   end
 
   def forfeits 

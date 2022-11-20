@@ -106,8 +106,8 @@ module Processable
       div_output[team.division] << team
     end
 
-    headers = ["Team Name","Division","Conference","Wins","Loss","Percentage",
-                "Total Score","Opp Score","Margin","Avg Margin",
+    headers = ["Team Name","Division","Conference","Wins","Loss","Percent",
+                "Avg Margin","Total Score","Opp Score","Margin",
                 "Home Wins","Home Loss","Away Wins","Away Loss",
                 "Div Wins","Div Loss","Conf Wins","Conf Loss",
                 "Forf Wins","Forf Loss","Dbl Forf", "Draw"]
@@ -140,10 +140,10 @@ module Processable
           team_line << t.wins
           team_line << t.losses
           team_line << t.percentage
+          team_line << t.avg_margin
           team_line << t.total_score
           team_line << t.opp_score
-          team_line << t.differential
-          team_line << t.avg_diff
+          team_line << t.margin
           team_line << t.hwins
           team_line << t.hloss
           team_line << t.awins
