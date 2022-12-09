@@ -3,5 +3,6 @@
 App to track statistics for World Series of Spades data, 2022-2023
 
 * Ruby version 2.7.4
-* Clone down and run using `ruby ./lib/runner.rb`
-* Current through Week 5, December 2, 2022
+* Clone down and run using `ruby ./lib/runner.rb XY`
+* `XY` represents two-digit week number; e.g. `05`
+* Current through Week 6, December 9, 2022
