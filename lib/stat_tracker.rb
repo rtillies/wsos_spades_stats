@@ -4,9 +4,11 @@ require_relative 'team'
 require_relative 'game'
 require_relative 'division'
 require_relative 'processable'
+require_relative 'searchable'
 
 class StatTracker
   include Processable
+  include Searchable
   attr_reader :teams, :games, :divisions, :output
   
   def initialize(locations)
