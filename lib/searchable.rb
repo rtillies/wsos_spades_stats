@@ -18,7 +18,7 @@ module Searchable
   def get_team
     puts "Enter team name: "
     team_stub = STDIN.gets.chomp
-    team = find_by_name(team_stub)
+    team = find_by_name(team_stub.downcase)
     # puts "Team name: #{team.team_name}"
     # team
   end
@@ -31,23 +31,35 @@ module Searchable
 
   def show_games(team)
     code = team.code
-    # name = team.team_name
-    # wins = team.wins
-    # losses = team.losses
-    # conf = team.conference
-    # div = team.division
 
-    # puts "#{name} (#{wins}-#{losses})"
-    # puts "#{conf} | #{div}"
-    # choice = get_choice.downcase
-    # puts "Choice: #{choice}"
+    selected = @games.select {|game| game.home_code == code || game.away_code == code}
+    # puts selected.size
 
     puts "#{team.team_name} (#{team.wins}-#{team.losses})"
     puts "#{team.conference} | #{team.division}"
     choice = get_choice.downcase
     puts "Choice: #{choice}"
 
-    @games.each do |game|
+    if choice == "c"
+      selected.select! {|game| game.conf_game?}
+    elsif choice == "d"
+      selected.select! {|game| game.div_game?}
+    elsif choice == "h"
+      selected.select! {|game| code == game.home_code}
+    elsif choice == "a"
+      selected.select! {|game| code == game.away_code}
+    elsif choice == "w"
+      selected.select! {|game| code == game.winning_team}
+    elsif choice == "l"
+      selected.select! {|game| code == game.losing_team}
+    elsif choice == "t"
+      other = get_team
+      selected.select! {|game| game.home_code == other.code || game.away_code == other.code}
+    end
+
+    puts "#{selected.size} games:"
+
+    selected.each do |game|
       if game.home_code == code || game.away_code == code
         if code == game.home_code
           home_away = "HOME"
@@ -70,6 +82,4 @@ module Searchable
       end
     end
   end
-
-  # def set_flag()
 end
