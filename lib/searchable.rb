@@ -23,16 +23,29 @@ module Searchable
     # team
   end
 
+  def get_choice
+    puts "(C)onf | (D)ivision | (H)ome | (A)way"
+    puts "(W)ins | (L)osses   | (T)eam | (X) All Games"
+    choice = STDIN.gets.chomp
+  end
+
   def show_games(team)
     code = team.code
-    name = team.team_name
-    wins = team.wins
-    losses = team.losses
-    conf = team.conference
-    div = team.division
+    # name = team.team_name
+    # wins = team.wins
+    # losses = team.losses
+    # conf = team.conference
+    # div = team.division
 
-    puts "#{name} (#{wins}-#{losses})"
-    puts "#{conf} | #{div}"
+    # puts "#{name} (#{wins}-#{losses})"
+    # puts "#{conf} | #{div}"
+    # choice = get_choice.downcase
+    # puts "Choice: #{choice}"
+
+    puts "#{team.team_name} (#{team.wins}-#{team.losses})"
+    puts "#{team.conference} | #{team.division}"
+    choice = get_choice.downcase
+    puts "Choice: #{choice}"
 
     @games.each do |game|
       if game.home_code == code || game.away_code == code
@@ -57,4 +70,6 @@ module Searchable
       end
     end
   end
+
+  # def set_flag()
 end
