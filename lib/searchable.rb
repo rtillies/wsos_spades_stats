@@ -38,6 +38,7 @@ module Searchable
 
     puts "#{team.team_name} (#{team.wins}-#{team.losses})"
     puts "#{team.conference} | #{team.division}"
+    message = "All games"
     choice = get_choice.upcase
     
     if choice == "C"
