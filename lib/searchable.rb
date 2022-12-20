@@ -19,12 +19,21 @@ module Searchable
     puts "Enter team name: "
     team_stub = STDIN.gets.chomp
     team = find_by_name(team_stub)
-    puts "Team name: #{team.team_name}"
-    team
+    # puts "Team name: #{team.team_name}"
+    # team
   end
 
   def show_games(team)
     code = team.code
+    name = team.team_name
+    wins = team.wins
+    losses = team.losses
+    conf = team.conference
+    div = team.division
+
+    puts "#{name} (#{wins}-#{losses})"
+    puts "#{conf} | #{div}"
+
     @games.each do |game|
       if game.home_code == code || game.away_code == code
         if code == game.home_code
