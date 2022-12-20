@@ -53,10 +53,10 @@ module Processable
         # Home or Away Wins
         if home == winner
           @teams[winner].hwins += 1
-          @teams[loser].hloss += 1
+          @teams[loser].aloss += 1
         else
           @teams[winner].awins += 1
-          @teams[loser].aloss += 1
+          @teams[loser].hloss += 1
         end
 
         # Forfeit or Count Points
