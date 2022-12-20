@@ -26,6 +26,7 @@ module Searchable
   def get_choice
     puts "(C)onf | (D)ivision | (H)ome | (A)way"
     puts "(W)ins | (L)osses   | (T)eam | (X) All Games"
+    print "Choice: "
     choice = STDIN.gets.chomp
   end
 
@@ -37,27 +38,33 @@ module Searchable
 
     puts "#{team.team_name} (#{team.wins}-#{team.losses})"
     puts "#{team.conference} | #{team.division}"
-    choice = get_choice.downcase
-    puts "Choice: #{choice}"
-
-    if choice == "c"
+    choice = get_choice.upcase
+    
+    if choice == "C"
+      message = "Conference games"
       selected.select! {|game| game.conf_game?}
-    elsif choice == "d"
+    elsif choice == "D"
+      message = "Division games"
       selected.select! {|game| game.div_game?}
-    elsif choice == "h"
+    elsif choice == "H"
+      message = "Home games"
       selected.select! {|game| code == game.home_code}
-    elsif choice == "a"
+    elsif choice == "A"
+      message = "Away games"
       selected.select! {|game| code == game.away_code}
-    elsif choice == "w"
+    elsif choice == "W"
+      message = "Games won"
       selected.select! {|game| code == game.winning_team}
-    elsif choice == "l"
+    elsif choice == "L"
+      message = "Games lost"
       selected.select! {|game| code == game.losing_team}
-    elsif choice == "t"
+    elsif choice == "T"
       other = get_team
+      message = "Games vs #{other.team_name}"
       selected.select! {|game| game.home_code == other.code || game.away_code == other.code}
     end
 
-    puts "#{selected.size} games:"
+    puts message + " (#{selected.size}):"
 
     selected.each do |game|
       if game.home_code == code || game.away_code == code
