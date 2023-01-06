@@ -3,17 +3,17 @@
 App to track statistics for World Series of Spades data, 2022-2023
 
 * Ruby version 2.7.4
-* Current through Week 8, December 22, 2022
+* Current through Week 9: January 5, 2023
 
 ### Stats only
 * Run: `ruby ./lib/runner.rb XY`
 * `XY` represents two-digit week number; e.g. `08`
-* Output: `outputDiv08CSV.csv`
+* Output: `outputDiv08CSV.csv` (matches week number)
 
 ### Search function
 * Run: `ruby ./lib/search.rb XY`
 * `XY` represents two-digit week number; e.g. `08`
-* Output: `outputDiv08CSV.csv`
+* Output: `outputDiv08CSV.csv` (matches week number)
 * Enter partial team name
     * Returns Full team name, record, conference, division
 * Choose to search by:
